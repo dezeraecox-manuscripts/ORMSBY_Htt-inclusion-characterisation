@@ -1,0 +1,13 @@
+# log files
+*.log
+
+# Annoying Office temp files
+*~$*
+~WR*
+
+# VSCode files
+*.vscode
+
+# ignoring git files
+*.gitconfig
+.gitattributes
