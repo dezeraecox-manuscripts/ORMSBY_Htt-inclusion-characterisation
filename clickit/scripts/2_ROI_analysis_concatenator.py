@@ -1,0 +1,58 @@
+import os, re
+
+import pandas as pd
+from GEN_Utils import FileHandling
+
+# Utility function for sorting numerical strings nicely
+def sorted_nicely( l ):
+    """ Sorts the given iterable in the way that is expected.
+
+    Required arguments:
+    l -- The iterable to be sorted.
+
+    """
+    convert = lambda text: int(text) if text.isdigit() else text
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key = alphanum_key)
+
+
+input_folder = 'clickit/example_data/results/'
+
+
+file_list = os.listdir(input_folder)
+
+# collect list of files in the input_folder that have .csv extension
+results_file_list = [filename for filename in file_list if '.csv' in filename]
+results_file_list
+
+# Establish empty list to store dataframes
+raw_data = []
+
+# read in each csv file, add image name and add df to list
+for filename in results_file_list:
+    data = pd.read_csv(input_folder+filename)
+    data['image_name'] = filename.split('_')[0]
+    raw_data.append(data)
+
+# join all dataframes in list underneath one another
+compiled_data = pd.concat(raw_data)
+compiled_data.reset_index(inplace=True, drop=True)
+
+# calculate number of cells
+num_cells = int(compiled_data.shape[0]/2)
+
+# add descriptors and calculations to df
+compiled_data['ROI_type'] = ['Incl', 'Adj'] * num_cells
+compiled_data['Flash/Cer'] = compiled_data['c3_intensity']/compiled_data['c1_intensity']
+compiled_data['cell_num'] = sorted_nicely([f'Cell_{x}' for x in range(1, num_cells+1)] * 2)
+
+# Collect adj and inclusion dataframes separately
+adj_data = compiled_data.set_index(['image_name', 'cell_num']).groupby('ROI_type').get_group('Adj')
+
+incl_data = compiled_data.set_index(['image_name', 'cell_num'], drop=True).groupby('ROI_type').get_group('Incl')
+
+# Join on cell number
+sorted_data = pd.merge(incl_data.reset_index(), adj_data.reset_index(), on=['image_name', 'cell_num'], suffixes=('_incl', '_adj'))
+
+# save to excel
+FileHandling.df_to_excel(input_folder+'Compiled.xlsx', data_frames=[compiled_data], sheetnames=['Compiled'])

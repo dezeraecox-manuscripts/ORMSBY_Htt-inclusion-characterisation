@@ -1,0 +1,19 @@
+name: htt-inclusions
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - loguru=0.3.2
+  - numpy=1.18.1
+  - pandas=1.0.3
+  - pip=20.1
+  - python=3.6.10
+  - scipy=1.4.1
+  - seaborn=0.10.1
+  - pip:
+    - jupyter
+    - statsmodels==0.11.0
+    - xlrd==1.2.0
+    - xlsxwriter==1.2.8
+    - gen-utils==0.1
+    - git+https://github.com/dezeraecox/GEN_Utils

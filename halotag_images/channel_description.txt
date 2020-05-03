@@ -1,0 +1,6 @@
+channel name    used
+c0  Cer incl    1
+c1  BF  0
+c2  FlAsH incl  1
+c3  TMR incl    1
+c4  TMR cyto    0

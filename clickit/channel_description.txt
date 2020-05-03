@@ -1,0 +1,9 @@
+channel name    used
+c0  cer_incl    1
+c1  BF  0
+c2  RNA_low_PMT 1
+c3  Hoechst 0
+c4  cer_cyto 0   
+c5  FlAsH-cyto  0  
+c6  FlAsH-incl  1
+c7  RNA_cyto    1
