@@ -15,16 +15,16 @@ This analysis assumes a standard installation of [Python 3](https://www.python.o
 
 Example raw images and partially processed results are provided here to test the included analysis scripts. 
 
-Initial preprocessing of the raw files to extract `TIFF` images from proprietary formats was completed in ImageJ, using the Bioformats importer (available via the drag-and-drop interface). Stacked or individual `TIFF` files were then exported for further processing where necessary.
+Initial preprocessing of the raw files to extract `TIFF` images from proprietary formats was completed in ImageJ, using the Bioformats importer (available via the drag-and-drop interface). Some additional utility scripts are included covering this in the [scripts](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/scripts) folder. Stacked or individual `TIFF` files were then exported for further processing where necessary, and are provided as example data in each of the relevant folders.
 
-1. Click-It and HaloTag images
+1. [Click-It](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/clickit) and [HaloTag](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/halotag_images) images
 
 | Script                        | Language/Interpreter  | Description                        |
 |-------------------------------|-----------------------|------------------------------------|
 |ROI_measure_mean_intensity     | Jython/ImageJ         | Define ROIs, collect per-pixel information and calculate mean intensity |
 |ROI_analysis_concatenator      | Python                | Collect ROIs and calculate mean FlAsH/Cerulean fluorescence |
 
-2. Halotag flow cytometry
+2. [Halotag flow cytometry](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/halotag_flowcytometry)
 
     *NB: Example raw data is preanalysed with flowjo, such that cells in "i" and "ni" gates are exported to individual `.csv` files.*
 
@@ -35,7 +35,7 @@ Initial preprocessing of the raw files to extract `TIFF` images from proprietary
 |Plotting        | Python               | Generate overall and per-bin plots for inclusion-containing cells |
 
 
-3. FRAP images
+3. [FRAP images](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/frap)
 
 | Script | Language/Interpreter | Description  |
 |--------|----------------------|--------------|
@@ -44,7 +44,7 @@ Initial preprocessing of the raw files to extract `TIFF` images from proprietary
 | Pixel_calculator | Python | Match ROIs across timepoints and calculate bleached ROI using pixel coordinates. Calculate background-corrected FRAP value |
 
 
-4. Antibody penetration
+4. [Antibody penetration](https://github.com/dezeraecox-manuscripts/ORMSBY_Htt-inclusion-characterisation/tree/master/antibody_penetration)
 
 | Script        | Language/Interpreter | Description |
 |---------------|----------------------|-------------|
@@ -54,5 +54,5 @@ Initial preprocessing of the raw files to extract `TIFF` images from proprietary
 
 ## References
 
-<a name="footnote_1">1.</a> Schindelin, J.; Arganda-Carreras, I. & Frise, E. et al. (2012), "Fiji: an open-source platform for biological-image analysis", Nature methods 9(7): 676-682, PMID 22743772, doi:10.1038/nmeth.2019 (on Google Scholar).
+<a name="footnote_1">1.</a> Schindelin, J.; Arganda-Carreras, I. & Frise, E. et al. (2012), "Fiji: an open-source platform for biological-image analysis", Nature methods 9(7): 676-682, PMID 22743772, doi:10.1038/nmeth.2019
 
