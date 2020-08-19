@@ -1,10 +1,8 @@
 # ORMSBY_Htt inclusion characterisation
 
-This repo contains the code and example data associated with the HBRi/PBRi characterisation project, led by Angelique Ormsby. This manuscript has been submitted for publication.
+This repo contains the code and example data associated with the HBRi/PBRi characterisation project, led by Angelique Ormsby. This manuscript has now been published and can be accessed using the link below.
 
-Manuscript preprint: [link]
-
-Final version: _upon acceptance_
+Final version: [Nascent mutant Huntingtin exon 1 chains do not stall on ribosomes during translation but aggregates do recruit machinery involved in ribosome quality control and RNA](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0233583&type=printable)
 
 ## Prerequisites
 
